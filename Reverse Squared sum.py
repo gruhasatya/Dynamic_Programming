@@ -12,3 +12,21 @@ for i in range(t):
         else:
             temp = -1
     print(sum)
+
+
+
+
+
+
+
+
+
+#  PRACTICAL ONE
+
+n = [1,2,3,4,5,6,67,7,8,98,9,6,7,8,43,2,4,5]
+target = 3
+for i in range(len(n)):
+    if target == i:
+        print(i)
+    else:
+        print(-1)
