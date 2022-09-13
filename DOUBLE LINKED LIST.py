@@ -79,7 +79,7 @@ class double_linkedlist:
             last = last.prev
 
     def detect_loop(self):
-        slow = self.head
+        slow = self.hea
         fast = self.head
         while slow and fast and fast.next:
             slow = slow.next
