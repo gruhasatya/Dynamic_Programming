@@ -115,3 +115,54 @@ tower_of_hanoi(n, 'A', 'B', 'C')
 
 # Basic - 2
 # Discuss N-Queen problem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Types of Analysis
+# 1. Time Complexity    -   How much time does it take to run the algorithm
+# 2. Space Complexity   -   How much space does it take to run the algorithm
+
+
+# Time Complexity
+# 1. Worst Case
+# 2. Average Case
+# 3. Best Case
+
+######################################### lower bound - O(n) <= Average Time <= upper bound - O(n^2) #########################################
+
+# Big O notation is used to describe the upper bound of an algorithm’s running time.
+# Big Omega notation is used to describe the lower bound of an algorithm’s running time.
+# Big Theta notation is used to describe the tight bound of an algorithm’s running time.
+
+# Big O example
+# O(n) + O(n) = O(n) + O(n) = O(n + n) = O(2n) = O(n)
+# Ex - 1        f(n) = 3n + 8
+# Ex - 2        f(n) = 3n^2 + 8n + 1
+
+
+# Big Omega example
+# Omega(n) + Omega(n) = Omega(n) + Omega(n) = Omega(n + n) = Omega(2n) = Omega(n)
+
+
+# Big Theta example
+# Theta(n) + Theta(n) = Theta(n) + Theta(n) = Theta(n + n) = Theta(2n) = Theta(n)
+
