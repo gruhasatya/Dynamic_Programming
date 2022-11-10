@@ -509,54 +509,289 @@
 #     sol1(n)
 #     sol(n)
 
-class Soltion:
-    # def subArraySum(self, arr, n, s):
-    #     for i in range(n):
-    #         for j in range(i, n):
-    #             if sum(arr[i:j+1]) == s:
-    #                 return i+1, j+1
-    #     return -1
+# class Soltion:
+#     # def subArraySum(self, arr, n, s):
+#     #     for i in range(n):
+#     #         for j in range(i, n):
+#     #             if sum(arr[i:j+1]) == s:
+#     #                 return i+1, j+1
+#     #     return -1
+#
+#     # //////////////////////////////////////////////////////////////////
+#     def subArraySum(self, arr, n, s):
+#         start = 0
+#         end = 0
+#         sum = 0
+#         while end < n:
+#             sum += arr[end]
+#             while sum > s:
+#                 sum -= arr[start]
+#                 start += 1
+#             if sum == s:
+#                 return start+1, end+1
+#             end += 1
+#         return -1
+#
+# # /////////////////////////////////////////////////////////////
+#
+# class Solution:
+#     def subArraySum(self, arr, n, s):                                        # [1, 2, 3, 7, 5], 5, 12                                                             # 1, 2, 3, 7, 5                                 # 1, 2, 3, 7, 5
+#         begin = 0                                                           # Two pointers
+#         end = 0                                                            # begin = 0, end = 0
+#
+#         curr_sum = arr[begin]                                              # sum start from 1                                                                     # 1
+#         while begin != n:                                                  # while begin which is  not less  then (0 != 5) goes on                                # 0 != 5
+#             if curr_sum == s:                                              # if sum is equal to 12                                                                # 1 == 12
+#                 return begin + 1, end + 1                                  # return the value ecluding 0                                                          # 1, 1
+#             elif curr_sum < s and end < n - 1:                             # if sum is less than 12 and end is less than 4 which is 5                             # 1 < 12 and 0 < 4
+#                 end += 1                                                   # increment end by 1                                                                   # 1
+#                 curr_sum += arr[end]                                       # add the value of end to curr_sum                                                     # 1 + 2
+#             elif begin == end and end < n - 1:                             # if begin is equal to end and end is less than 4                                      # 0 == 0 and 0 < 4
+#                 end += 1                                                   # increment end by 1                                                                   # 1
+#                 curr_sum += arr[end]                                       # add the value of end to curr_sum                                                     # 1 + 2
+#             else:
+#                 curr_sum -= arr[begin]                                     # subtract the value of begin from curr_sum                                            # 1 - 1
+#                 begin += 1                                                 # increment begin by 1                                                                 # 1
+#         return [-1]
+#
+#
+# if __name__ == '__main__':
+#     arr = list(map(int, input().split()))
+#     s = int(input())
+#     print(Soltion().subArraySum(arr, len(arr), s))
 
-    # //////////////////////////////////////////////////////////////////
-    def subArraySum(self, arr, n, s):
-        start = 0
-        end = 0
-        sum = 0
-        while end < n:
-            sum += arr[end]
-            while sum > s:
-                sum -= arr[start]
-                start += 1
-            if sum == s:
-                return start+1, end+1
-            end += 1
-        return -1
 
-# /////////////////////////////////////////////////////////////
 
-class Solution:
-    def subArraySum(self, arr, n, s):                                        # [1, 2, 3, 7, 5], 5, 12                                                             # 1, 2, 3, 7, 5                                 # 1, 2, 3, 7, 5
-        begin = 0                                                           # Two pointers
-        end = 0                                                            # begin = 0, end = 0
 
-        curr_sum = arr[begin]                                              # sum start from 1                                                                     # 1
-        while begin != n:                                                  # while begin which is  not less  then (0 != 5) goes on                                # 0 != 5
-            if curr_sum == s:                                              # if sum is equal to 12                                                                # 1 == 12
-                return begin + 1, end + 1                                  # return the value ecluding 0                                                          # 1, 1
-            elif curr_sum < s and end < n - 1:                             # if sum is less than 12 and end is less than 4 which is 5                             # 1 < 12 and 0 < 4
-                end += 1                                                   # increment end by 1                                                                   # 1
-                curr_sum += arr[end]                                       # add the value of end to curr_sum                                                     # 1 + 2
-            elif begin == end and end < n - 1:                             # if begin is equal to end and end is less than 4                                      # 0 == 0 and 0 < 4
-                end += 1                                                   # increment end by 1                                                                   # 1
-                curr_sum += arr[end]                                       # add the value of end to curr_sum                                                     # 1 + 2
+# import numpy as np
+# import random
+# from time import sleep
+#
+# def board():
+#     return(np.array([[0, 0, 0]
+#                      [0, 0, 0]
+#                      [0, 0, 0]]))
+#
+# def check_empty(board):
+#     l =[]
+#     for i in range(len(board)):
+#         for j in range(len(board)):
+#             if board[i][j] == 0:
+#                 l.append((i, j))
+#         return(l)
+#
+#
+# def random_place(board, player):
+#     selection = possibilities(board)
+#     current_loc = random.choice(selection)
+#     board[current_loc] = player
+#     return (board)
+#
+#
+# # Checks whether the player has three
+# # of their marks in a horizontal row
+# def row_win(board, player):
+#     for x in range(len(board)):
+#         win = True
+#
+#         for y in range(len(board)):
+#             if board[x, y] != player:
+#                 win = False
+#                 continue
+#
+#         if win == True:
+#             return (win)
+#     return (win)
+#
+#
+# # Checks whether the player has three
+# # of their marks in a vertical row
+# def col_win(board, player):
+#     for x in range(len(board)):
+#         win = True
+#
+#         for y in range(len(board)):
+#             if board[y][x] != player:
+#                 win = False
+#                 continue
+#
+#         if win == True:
+#             return (win)
+#     return (win)
+#
+#
+# # Checks whether the player has three
+# # of their marks in a diagonal row
+# def diag_win(board, player):
+#     win = True
+#     y = 0
+#     for x in range(len(board)):
+#         if board[x, x] != player:
+#             win = False
+#     if win:
+#         return win
+#     win = True
+#     if win:
+#         for x in range(len(board)):
+#             y = len(board) - 1 - x
+#             if board[x, y] != player:
+#                 win = False
+#     return win
+#
+#
+# # Evaluates whether there is
+# # a winner or a tie
+# def evaluate(board):
+#     winner = 0
+#
+#     for player in [1, 2]:
+#         if (row_win(board, player) or
+#                 col_win(board, player) or
+#                 diag_win(board, player)):
+#             winner = player
+#
+#     if np.all(board != 0) and winner == 0:
+#         winner = -1
+#     return winner
+#
+#
+# # Main function to start the game
+# def play_game():
+#     board, winner, counter = create_board(), 0, 1
+#     print(board)
+#     sleep(2)
+#
+#     while winner == 0:
+#         for player in [1, 2]:
+#             board = random_place(board, player)
+#             print("Board after " + str(counter) + " move")
+#             print(board)
+#             sleep(2)
+#             counter += 1
+#             winner = evaluate(board)
+#             if winner != 0:
+#                 break
+#     return (winner)
+
+# long number Possiblities
+
+# class UserMainCode(object):
+#     @classmethod
+#     def isPossible(cls, input1, input2):
+#         # Write code here
+#         if input1 == 0:
+#             return 1
+#         if input1 < 0:
+#             return 0
+#         if input1 in input2:
+#             return 1
+#         for i in range(1, input1 + 1):
+#             if i in input2 and cls.isPossible(input1 - i, input2):
+#                 return 1
+#         return 0
+#
+# if __name__ == '__main__':
+#     input1 = int(input())
+#     input2 = list(map(int, input().split()))
+#     print(UserMainCode.isPossible(input1, input2))
+
+# ALT - TAB Window
+# def altTab(arr, size, ele):
+#     for i in range(ele):
+#         temp = arr[0]
+#         for j in range(1, size):
+#             arr[j - 1] = arr[j]
+#         arr[size - 1] = temp
+#     return arr
+#
+#
+# if __name__ == '__main__':
+#     arr = list(map(int, input().split()))
+#     size = int(input())
+#     ele = int(input())
+#     print(altTab(arr, size, ele))
+#
+#
+# def candies(arr, size):
+#     candy = [1] * size
+#     for i in range(1, size):
+#         if arr[i] > arr[i - 1]:
+#             candy[i] = candy[i - 1] + 1
+#     for i in range(size - 2, -1, -1):
+#         if arr[i] > arr[i + 1] and candy[i] <= candy[i + 1]:
+#             candy[i] = candy[i + 1] + 1
+#     return sum(candy)
+#
+# if __name__ == '__main__':
+#     arr = list(map(int, input().split()))
+#     size = int(input())
+#     candies(arr, size)
+
+# def children_candies(input1, input2, input3):
+#     i, j, temp = 0, 0, 0
+#     for i in range(input1):
+#         for j in range(input1 - 1):
+#             if input3[i] < input3[j]:
+#                 temp = input3[i]
+#                 input3[i] = input3[j]
+#                 input3[j] = temp
+#         if i+1 == input2:
+#             break
+#     return input3[input2-1]
+#
+#
+# if __name__ == '__main__':
+#     input1 = int(input())
+#     input2 = int(input())
+#     input3 = list(map(int, input().split()))
+#     print(children_candies(input1, input2, input3))
+#
+
+def createPartition(arithOperation, arithResult, arrayOfIntegers):
+    if len(arrayOfIntegers) == 1:
+        if arithOperation == "add":
+            if arrayOfIntegers[0] == arithResult:
+                return 1
             else:
-                curr_sum -= arr[begin]                                     # subtract the value of begin from curr_sum                                            # 1 - 1
-                begin += 1                                                 # increment begin by 1                                                                 # 1
-        return [-1]
-
+                return 0
+        elif arithOperation == "subtract":
+            if arrayOfIntegers[0] == arithResult:
+                return 1
+            else:
+                return 0
+        elif arithOperation == "multiply":
+            if arrayOfIntegers[0] == arithResult:
+                return 1
+            else:
+                return 0
+        elif arithOperation == "divide":
+            if arrayOfIntegers[0] == arithResult:
+                return 1
+            else:
+                return 0
+    if arithOperation == "add":
+        for i in range(len(arrayOfIntegers)):
+            if createPartition(arithOperation, arithResult - arrayOfIntegers[i], arrayOfIntegers[:i] + arrayOfIntegers[i + 1:]) == 1:
+                return 1
+    elif arithOperation == "subtract":
+        for i in range(len(arrayOfIntegers)):
+            if createPartition(arithOperation, arithResult + arrayOfIntegers[i], arrayOfIntegers[:i] + arrayOfIntegers[i + 1:]) == 1:
+                return 1
+    elif arithOperation == "multiply":
+        for i in range(len(arrayOfIntegers)):
+            if createPartition(arithOperation, arithResult / arrayOfIntegers[i], arrayOfIntegers[:i] + arrayOfIntegers[i + 1:]) == 1:
+                return 1
+    elif arithOperation == "divide":
+        for i in range(len(arrayOfIntegers)):
+            if createPartition(arithOperation, arithResult * arrayOfIntegers[i], arrayOfIntegers[:i] + arrayOfIntegers[i + 1:]) == 1:
+                return 1
+    return 0
 
 if __name__ == '__main__':
-    arr = list(map(int, input().split()))
-    s = int(input())
-    print(Soltion().subArraySum(arr, len(arr), s))
+    arithOperation = input()
+    arithResult = int(input())
+    arrayOfIntegers = list(map(int, input().split()))
+    print(createPartition(arithOperation, arithResult, arrayOfIntegers))
+
+
 

@@ -95,13 +95,13 @@ KnightTourMain()
 # Basic - 1
 # Discuss tower of hanoi puzzle
 
-def tower_of_hanoi(n, source, destination, auxiliary):
-    if n == 1:
+def tower_of_hanoi(n, source, destination, auxiliary):                              # Recursive function to solve the problem
+    if n == 1:                                                                      # If there is only one disk move it from source to destination
         print("Move disk 1 from source", source, "to destination", destination)
         return
-    tower_of_hanoi(n - 1, source, auxiliary, destination)
+    tower_of_hanoi(n - 1, source, auxiliary, destination)                           # Move n-1 disks from source to auxiliary
     print("Move disk", n, "from source", source, "to destination", destination)
-    tower_of_hanoi(n - 1, auxiliary, destination, source)
+    tower_of_hanoi(n - 1, auxiliary, destination, source)                           # Move n-1 disks from auxiliary to destination
 
 n = 4
 tower_of_hanoi(n, 'A', 'B', 'C')
@@ -165,5 +165,6 @@ tower_of_hanoi(n, 'A', 'B', 'C')
 
 # Big Theta example
 # Theta(n) + Theta(n) = Theta(n) + Theta(n) = Theta(n + n) = Theta(2n) = Theta(n)
+
 
 
